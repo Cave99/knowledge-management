@@ -1702,6 +1702,241 @@ svg {
   line-height: 1.6;
   margin: 0;
 }
+.search-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+.search-dialog-input,
+.search-footer {
+  flex-shrink: 0;
+}
+.search-results,
+.search-answer-scroll {
+  min-height: 0;
+}
+.ask-ai-option {
+  margin-top: 10px;
+  border-top: 1px solid var(--line);
+  border-radius: 0 0 8px 8px;
+  padding-top: 18px;
+}
+.ai-spark {
+  color: var(--brand-ink);
+  background: var(--brand-soft);
+}
+.search-answer-scroll {
+  overflow-y: auto;
+  max-height: calc(80dvh - 125px);
+  overscroll-behavior: contain;
+}
+.ai-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 22px 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.ai-toolbar button,
+.ai-toolbar > span,
+.ai-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.ai-toolbar button:hover {
+  color: var(--text);
+}
+.ai-toolbar > span {
+  color: var(--brand-ink);
+}
+.ai-answer {
+  padding: 20px 25px 22px;
+  font-size: 13px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.ai-answer > .search-label,
+.ai-sources > .search-label {
+  padding: 0;
+  margin-bottom: 14px;
+}
+.ai-answer > p {
+  margin: 0 0 16px;
+  white-space: pre-wrap;
+}
+.ai-citations {
+  display: inline;
+  margin-left: 5px;
+}
+.ai-citation {
+  margin: 0 2px;
+  vertical-align: baseline;
+}
+.ai-source-number {
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background: var(--brand-soft);
+  color: var(--brand-ink);
+  font-size: 10px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.ai-citation:hover .ai-source-number,
+.ai-source:hover {
+  background: var(--panel-2);
+}
+.ai-sources {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.ai-source {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  text-align: left;
+  padding: 9px 8px;
+  margin: 0 -8px;
+  border-radius: 6px;
+}
+.ai-source > span:nth-child(2) {
+  min-width: 0;
+  flex: 1;
+}
+.ai-source strong,
+.ai-source small {
+  display: block;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.ai-source strong {
+  font-weight: 500;
+}
+.ai-source small,
+.ai-source > svg {
+  color: var(--muted);
+}
+.ai-answer > .ai-note {
+  color: var(--faint);
+  font-size: 10px;
+  line-height: 1.6;
+  margin: 20px 0 0;
+}
+.ai-loading,
+.ai-error {
+  padding: 35px 25px 42px;
+  text-align: center;
+}
+.ai-loading-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 20px;
+  color: var(--brand-ink);
+}
+/* A quiet echo of the intro's droplet: the tile drifts between soft organic
+   shapes while work is in flight. Only this small surface repaints. */
+.ai-loading-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--brand-line);
+  border-radius: 15px;
+  background: var(--brand-soft);
+  animation: ai-blob 2.4s var(--ease-in-out) infinite alternate;
+}
+.ai-loading-icon > svg {
+  position: relative;
+}
+.ai-phase {
+  display: block;
+}
+@keyframes ai-blob {
+  0% {
+    border-radius: 15px;
+    transform: scale(1);
+  }
+  33% {
+    border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%;
+    transform: scale(1.04) rotate(-4deg);
+  }
+  66% {
+    border-radius: 56% 44% 58% 42% / 44% 56% 46% 54%;
+    transform: scale(0.98) rotate(5deg);
+  }
+  100% {
+    border-radius: 40% 60% 52% 48% / 58% 42% 54% 46%;
+    transform: scale(1.03) rotate(-2deg);
+  }
+}
+/* Asynchronous arrivals coalesce from a slight blur, like the droplet settling.
+   Content is mounted and interactive immediately; the stagger is capped at
+   four steps (160ms) so nothing readable is meaningfully held back. */
+.ai-loading[data-phase="answering"] .ai-phase,
+.ai-progress-sources > *,
+.ai-answer > :not(.ai-sources),
+.ai-sources > .search-label:not([data-carried]),
+.ai-sources > .ai-source:not([data-carried]),
+.ai-error {
+  animation: ai-arrive 240ms var(--ease-out) backwards;
+  animation-delay: calc(var(--arrive, 0) * 40ms);
+}
+@keyframes ai-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+    filter: blur(3px);
+  }
+}
+@keyframes ai-fade {
+  from {
+    opacity: 0;
+  }
+}
+.ai-loading strong,
+.ai-error strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+.ai-loading p,
+.ai-error p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 9px auto 20px;
+  max-width: 380px;
+}
+.ai-secondary {
+  padding: 8px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.ai-secondary:hover {
+  color: var(--text);
+  background: var(--panel-2);
+}
+.ai-progress-sources {
+  text-align: left;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.ai-progress-sources > .search-label {
+  padding: 0;
+  margin-bottom: 10px;
+}
 .diagnostics {
   font-size: 11px;
   padding: 12px 28px;
@@ -2675,6 +2910,15 @@ svg {
   }
   .loading-line::after {
     transform: translateX(42px);
+  }
+  /* Keep arrivals legible as a gentle fade: no movement, blur or stagger. */
+  .ai-loading[data-phase="answering"] .ai-phase,
+  .ai-progress-sources > *,
+  .ai-answer > :not(.ai-sources),
+  .ai-sources > .search-label:not([data-carried]),
+  .ai-sources > .ai-source:not([data-carried]),
+  .ai-error {
+    animation: ai-fade 160ms ease backwards !important;
   }
 }
 @media (prefers-contrast: more) {

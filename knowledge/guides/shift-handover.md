@@ -8,19 +8,19 @@ updated_at: 2026-10-24T03:15:00Z
 tags: [operations, daily, handover]
 ---
 
-## Before the handover
+## Before the handover {#before-the-handover}
 
-### Review the open work
+### Review the open work {#review-the-open-work}
 
 Check what's complete, what's in progress, and what needs attention next. Update the shared record before the conversation starts.
 
-### Identify anything unusual
+### Identify anything unusual {#identify-anything-unusual}
 
 Note changes to the normal process, equipment issues, customer commitments, or dependencies. Give each open issue a clear owner.
 
-## During the handover
+## During the handover {#during-the-handover}
 
-### Cover the essentials
+### Cover the essentials {#cover-the-essentials}
 
 | Topic | Include |
 | --- | --- |
@@ -29,12 +29,12 @@ Note changes to the normal process, equipment issues, customer commitments, or d
 | Priorities | What needs attention first |
 | Changes | Anything different from the usual process |
 
-### Confirm understanding
+### Confirm understanding {#confirm-understanding}
 
 Leave time for questions. Ask the incoming team to confirm the most important next action, especially if the usual process has changed.
 
 > **Make it actionable.** “Equipment issue” is a topic. “Alex is arranging a replacement; use station two until it arrives” is a handover.
 
-## After the handover
+## After the handover {#after-the-handover}
 
 Keep the written record somewhere the incoming team can find it. If a recurring issue has a reliable solution, add it to the relevant playbook.

@@ -9,26 +9,26 @@ pinned: true
 tags: [tools, access, templates]
 ---
 
-## Start with the task
+## Start with the task {#start-with-the-task}
 
 Look for the resource by what you're trying to achieve. A tool's name may change; the work it helps you do usually stays the same.
 
-## Request access
+## Request access {#request-access}
 
-### Find the resource owner
+### Find the resource owner {#find-the-resource-owner}
 
 Check the relevant guide for the person or team responsible. If you're unsure, ask your team lead to point you in the right direction.
 
-### Explain what you need
+### Explain what you need {#explain-what-you-need}
 
 Include the resource, the level of access, and a short explanation of the work you need to do. Use your team's normal access request channel.
 
-### Check that it works
+### Check that it works {#check-that-it-works}
 
 Open the resource and try the action you need. Let the owner know if you have access to the page but can't complete the task.
 
 > **Keep the directory useful.** If a link is broken or an owner has changed, share that with the team responsible for the guide.
 
-## Use a shared template
+## Use a shared template {#use-a-shared-template}
 
 Copy the template before you start. Give your copy a descriptive name, add an owner, and link it from the relevant project or process.

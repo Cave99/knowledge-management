@@ -8,13 +8,13 @@ updated_at: 2026-10-22T02:00:00Z
 tags: [projects, planning]
 ---
 
-## Get aligned
+## Get aligned {#get-aligned}
 
-### Write down the outcome
+### Write down the outcome {#write-down-the-outcome}
 
 Describe the problem in a few sentences. Agree on what will be different when the project is complete, and how the team will know it worked.
 
-### Name the people
+### Name the people {#name-the-people}
 
 Identify the project owner, contributors, and people who need to be consulted. Make decision-making responsibilities clear before the first trade-off.
 
@@ -24,14 +24,14 @@ Identify the project owner, contributors, and people who need to be consulted. M
 | Contributors | Carry out and coordinate the work |
 | Reviewers | Bring context and check the result |
 
-## Set up the working space
+## Set up the working space {#set-up-the-working-space}
 
 1. Link the project brief and working documents.
 2. Choose where progress updates will go.
 3. Record decisions with the reason they were made.
 4. Agree on the first checkpoint.
 
-## Share what you learn
+## Share what you learn {#share-what-you-learn}
 
 When the project finishes, capture the useful lessons. A short, practical guide helps the next team build on your work.
 

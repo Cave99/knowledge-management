@@ -10,11 +10,14 @@
     "dev": "concurrently -k -n api,web \"tsx watch server/index.ts\" \"vite --host 0.0.0.0\"",
     "build": "tsc --noEmit && vite build",
     "start": "NODE_ENV=production tsx server/index.ts",
-    "test": "tsx --test server/library.test.ts server/app.test.ts",
+    "test": "tsx --test server/*.test.ts",
     "check": "tsc --noEmit"
   },
   "dependencies": {
+    "@electric-sql/pglite": "^0.5.11",
+    "@electric-sql/pglite-pgvector": "^0.0.12",
     "@fastify/compress": "^9.2.2",
+    "@fastify/rate-limit": "^11.2.1",
     "@fastify/static": "^10.1.7",
     "@tanstack/react-query": "^5.104.5",
     "@tanstack/react-router": "^1.170.46",
@@ -24,6 +27,7 @@
     "github-slugger": "^2.0.0",
     "lucide-react": "^1.61.0",
     "markdown-it": "^15.0.3",
+    "proper-lockfile": "^4.1.2",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "sanitize-html": "^2.18.1",
@@ -32,6 +36,7 @@
   "devDependencies": {
     "@types/markdown-it": "^14.2.0",
     "@types/node": "^26.6.5",
+    "@types/proper-lockfile": "^4.1.4",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@types/sanitize-html": "^2.16.2",

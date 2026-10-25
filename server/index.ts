@@ -4,14 +4,22 @@ import type { ServerResponse } from "node:http";
 import { watch } from "chokidar";
 import { loadLibrary } from "./library";
 import { createApp } from "./app";
+import { aiConfig } from "./ai-providers";
+import { RagService } from "./ai";
 
 const contentRoot = path.resolve(process.env.CONTENT_DIR || "knowledge");
 let library = await loadLibrary(contentRoot);
+const ai = new RagService(
+  aiConfig(),
+  () => library,
+  (message) => app.log.warn(message),
+);
 const clients = new Set<ServerResponse>();
 const app = await createApp({
   contentRoot,
   snapshot: () => library,
   production: process.env.NODE_ENV === "production",
+  ai,
   onClient(response) {
     clients.add(response);
     response.on("close", () => clients.delete(response));
@@ -43,6 +51,7 @@ async function refresh() {
         );
       }
     } while (queued);
+    void ai.refresh();
   } catch (error) {
     app.log.error(error, "Unable to refresh knowledge library");
   } finally {
@@ -70,6 +79,7 @@ watcher.on("error", (error) =>
 );
 const reconcile = setInterval(() => void refresh(), 30_000);
 await app.listen({ port: Number(process.env.PORT || 3001), host: "0.0.0.0" });
+void ai.refresh();
 app.log.info(
   { contentRoot, documents: library.documents.length },
   "Knowledge library ready",
@@ -82,6 +92,7 @@ async function close() {
   clearTimeout(debounce);
   clearInterval(reconcile);
   await watcher.close();
+  await ai.close();
   for (const client of clients) client.end();
   await app.close();
 }

@@ -5,3 +5,5 @@ The Outfit font bundled in `public/fonts/outfit.woff2` was extracted from the su
 The KM flow logo outlines and optional WebGL animation were adapted from the user-supplied reference demo. The renderer is retained in `src/brand-intro.js` and loaded only on explicit replay.
 
 Lucide icons are distributed under the ISC licence. React, Vite, TanStack Router, TanStack Query, Fastify, Markdown-it, YAML, Chokidar, and the other dependencies retain their respective package licences. Dependency notices are available in their installed package directories and the lockfile records the selected versions.
+
+PGlite (`@electric-sql/pglite`) and the `@electric-sql/pglite-pgvector` package are distributed under Apache-2.0. Their bundled PostgreSQL and pgvector components use the PostgreSQL License. Their installed packages include their licences and notices. Proper Lockfile and Fastify Rate Limit use the MIT licence.

@@ -9,25 +9,25 @@ pinned: true
 tags: [writing, knowledge]
 ---
 
-## Start with one useful question
+## Start with one useful question {#start-with-one-useful-question}
 
 The best guides solve a specific problem. Before writing, finish this sentence: **After reading this, a teammate will be able to…**
 
-### Check what already exists
+### Check what already exists {#check-what-already-exists}
 
 Search the library for a similar process. Improving one good guide is usually more helpful than creating a second version of the same answer.
 
-### Choose an owner
+### Choose an owner {#choose-an-owner}
 
 Give the guide a person or team who can keep it current. An owner doesn't need to write every word; they make sure the information still works.
 
-## Make it easy to follow
+## Make it easy to follow {#make-it-easy-to-follow}
 
-### Lead with the outcome
+### Lead with the outcome {#lead-with-the-outcome}
 
 Explain what the guide helps someone do and when to use it. Include any access, tools, or information they'll need before starting.
 
-### Write concrete steps
+### Write concrete steps {#write-concrete-steps}
 
 1. Start each step with a verb.
 2. Keep one meaningful action in each step.
@@ -36,11 +36,11 @@ Explain what the guide helps someone do and when to use it. Include any access, 
 
 > **Try it with a teammate.** Ask someone unfamiliar with the process to follow the guide. Wherever they hesitate is a useful place to improve it.
 
-### Add examples where they help
+### Add examples where they help {#add-examples-where-they-help}
 
 A short example often does more than a long explanation. Use tables for reference information, lists for actions, and links for supporting detail.
 
-## Keep it current
+## Keep it current {#keep-it-current}
 
 Review the guide when the process changes. Update the description and edit date in the file's frontmatter, then check the links still lead somewhere useful.
 

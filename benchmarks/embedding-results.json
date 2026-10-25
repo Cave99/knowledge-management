@@ -1,0 +1,904 @@
+{
+  "timestamp": "2026-10-25T00:01:31.914Z",
+  "corpusRevision": "7d56d352dd11e99a34f8",
+  "documents": 8,
+  "chunks": 42,
+  "questionCount": 20,
+  "dimensions": 1024,
+  "latencyProbes": 5,
+  "method": "Pure cosine retrieval; no keyword fast path, reranker, generation or answer cache. Model-recommended prefixes. Batch accuracy queries; separate single-query latency probes, rotating order, no retries. Public bundled examples only. OpenAI shortened to 1024 dimensions; BGE and Liquid use native 1024. Production index and configuration unchanged.",
+  "results": [
+    {
+      "model": "baai/bge-large-en-v1.5",
+      "usdPerMillion": 0.01,
+      "trainingAllowed": false,
+      "latencyMs": [
+        1058,
+        1120,
+        1061,
+        1011,
+        1209
+      ],
+      "errors": [],
+      "indexMs": 5915,
+      "accuracyBatchMs": 1829,
+      "cases": [
+        {
+          "question": "What must be passed to the next crew when a work shift ends?",
+          "expected": "shift-handover#cover-the-essentials",
+          "rank": 3,
+          "top": [
+            "shift-handover#confirm-understanding",
+            "shift-handover#after-the-handover",
+            "shift-handover#cover-the-essentials"
+          ]
+        },
+        {
+          "question": "Who takes responsibility for abnormal equipment problems?",
+          "expected": "shift-handover#identify-anything-unusual",
+          "rank": 1,
+          "top": [
+            "shift-handover#identify-anything-unusual",
+            "project-check#name-the-people",
+            "shift-handover#confirm-understanding"
+          ]
+        },
+        {
+          "question": "How do we verify the incoming crew knows what to do?",
+          "expected": "shift-handover#confirm-understanding",
+          "rank": 14,
+          "top": [
+            "first-week#set-up-your-tools",
+            "welcome#make-knowledge-a-team-habit",
+            "welcome#where-to-go-next"
+          ]
+        },
+        {
+          "question": "Where should the written handoff notes be kept afterwards?",
+          "expected": "shift-handover#after-the-handover",
+          "rank": 1,
+          "top": [
+            "shift-handover#after-the-handover",
+            "shift-handover#review-the-open-work",
+            "shift-handover#identify-anything-unusual"
+          ]
+        },
+        {
+          "question": "How should I format individual actions in a procedure?",
+          "expected": "write-guide#write-concrete-steps",
+          "rank": 2,
+          "top": [
+            "write-guide#add-examples-where-they-help",
+            "write-guide#write-concrete-steps",
+            "project-check#write-down-the-outcome"
+          ]
+        },
+        {
+          "question": "How do we avoid two documents describing the same process?",
+          "expected": "write-guide#check-what-already-exists",
+          "rank": 2,
+          "top": [
+            "write-guide#keep-it-current",
+            "write-guide#check-what-already-exists",
+            "write-guide#write-concrete-steps"
+          ]
+        },
+        {
+          "question": "Who is responsible for keeping an instruction document accurate?",
+          "expected": "write-guide#choose-an-owner",
+          "rank": 2,
+          "top": [
+            "project-check#name-the-people",
+            "write-guide#choose-an-owner",
+            "write-guide#keep-it-current"
+          ]
+        },
+        {
+          "question": "How can we discover confusing parts of a procedure before publishing?",
+          "expected": "write-guide#write-concrete-steps",
+          "rank": 5,
+          "top": [
+            "write-guide#check-what-already-exists",
+            "write-guide#add-examples-where-they-help",
+            "welcome#find-an-answer"
+          ]
+        },
+        {
+          "question": "What details should I send when reporting a problem to a colleague?",
+          "expected": "team-help#share-the-context",
+          "rank": 2,
+          "top": [
+            "team-help#make-the-next-step-clear",
+            "team-help#share-the-context",
+            "team-help#close-the-loop"
+          ]
+        },
+        {
+          "question": "How do I tell someone whether I want advice, a review, or investigation?",
+          "expected": "team-help#make-the-next-step-clear",
+          "rank": 1,
+          "top": [
+            "team-help#make-the-next-step-clear",
+            "first-week#ask-the-small-questions",
+            "tools#explain-what-you-need"
+          ]
+        },
+        {
+          "question": "What should I do with the solution after someone answers my question?",
+          "expected": "team-help#close-the-loop",
+          "rank": 1,
+          "top": [
+            "team-help#close-the-loop",
+            "team-help#make-the-next-step-clear",
+            "team-help#explain-the-goal"
+          ]
+        },
+        {
+          "question": "I need permission to use a shared tool. What should the request include?",
+          "expected": "tools#explain-what-you-need",
+          "rank": 1,
+          "top": [
+            "tools#explain-what-you-need",
+            "tools#check-that-it-works",
+            "tools#use-a-shared-template"
+          ]
+        },
+        {
+          "question": "I can open a page but cannot perform the required action. What next?",
+          "expected": "tools#check-that-it-works",
+          "rank": 1,
+          "top": [
+            "tools#check-that-it-works",
+            "team-help#share-the-context",
+            "welcome#find-an-answer"
+          ]
+        },
+        {
+          "question": "How do I use a common template without editing the original?",
+          "expected": "tools#use-a-shared-template",
+          "rank": 1,
+          "top": [
+            "tools#use-a-shared-template",
+            "markdown-files#give-it-some-structure",
+            "tools#check-that-it-works"
+          ]
+        },
+        {
+          "question": "Which outcomes and success criteria should be agreed before a project?",
+          "expected": "project-check#write-down-the-outcome",
+          "rank": 1,
+          "top": [
+            "project-check#write-down-the-outcome",
+            "project-check#name-the-people",
+            "project-check#share-what-you-learn"
+          ]
+        },
+        {
+          "question": "Who is accountable, who contributes, and who reviews a new project?",
+          "expected": "project-check#name-the-people",
+          "rank": 1,
+          "top": [
+            "project-check#name-the-people",
+            "project-check#write-down-the-outcome",
+            "welcome#make-knowledge-a-team-habit"
+          ]
+        },
+        {
+          "question": "Where do I configure a different folder of Markdown documents?",
+          "expected": "markdown-files#put-the-file-in-the-knowledge-folder",
+          "rank": 1,
+          "top": [
+            "markdown-files#put-the-file-in-the-knowledge-folder",
+            "markdown-files#a-document-is-a-file",
+            "markdown-files#give-it-some-structure"
+          ]
+        },
+        {
+          "question": "Which metadata fields go at the top of a knowledge document?",
+          "expected": "markdown-files#describe-it-with-frontmatter",
+          "rank": 2,
+          "top": [
+            "welcome#find-an-answer",
+            "markdown-files#describe-it-with-frontmatter",
+            "markdown-files#put-the-file-in-the-knowledge-folder"
+          ]
+        },
+        {
+          "question": "As a new starter, how should I learn a real working procedure?",
+          "expected": "first-week#follow-a-process-with-someone",
+          "rank": 1,
+          "top": [
+            "first-week#follow-a-process-with-someone",
+            "welcome#your-shared-source-of-knowledge",
+            "first-week#set-up-your-tools"
+          ]
+        },
+        {
+          "question": "How can a new employee learn who looks after each area?",
+          "expected": "first-week#meet-your-team",
+          "rank": 1,
+          "top": [
+            "first-week#meet-your-team",
+            "first-week#read-the-essentials",
+            "welcome#make-knowledge-a-team-habit"
+          ]
+        }
+      ],
+      "top1": 12,
+      "top3": 18,
+      "mrr": 0.7552380952380953,
+      "medianMs": 1061,
+      "minMs": 1011,
+      "maxMs": 1209
+    },
+    {
+      "model": "perplexity/pplx-embed-v1-0.6b",
+      "usdPerMillion": 0.004,
+      "trainingAllowed": false,
+      "latencyMs": [
+        1038,
+        1099,
+        1049,
+        1040,
+        1072
+      ],
+      "errors": [],
+      "indexMs": 3506,
+      "accuracyBatchMs": 1167,
+      "cases": [
+        {
+          "question": "What must be passed to the next crew when a work shift ends?",
+          "expected": "shift-handover#cover-the-essentials",
+          "rank": 3,
+          "top": [
+            "shift-handover#review-the-open-work",
+            "shift-handover#confirm-understanding",
+            "shift-handover#cover-the-essentials"
+          ]
+        },
+        {
+          "question": "Who takes responsibility for abnormal equipment problems?",
+          "expected": "shift-handover#identify-anything-unusual",
+          "rank": 1,
+          "top": [
+            "shift-handover#identify-anything-unusual",
+            "shift-handover#confirm-understanding",
+            "project-check#name-the-people"
+          ]
+        },
+        {
+          "question": "How do we verify the incoming crew knows what to do?",
+          "expected": "shift-handover#confirm-understanding",
+          "rank": 1,
+          "top": [
+            "shift-handover#confirm-understanding",
+            "shift-handover#identify-anything-unusual",
+            "shift-handover#review-the-open-work"
+          ]
+        },
+        {
+          "question": "Where should the written handoff notes be kept afterwards?",
+          "expected": "shift-handover#after-the-handover",
+          "rank": 1,
+          "top": [
+            "shift-handover#after-the-handover",
+            "shift-handover#confirm-understanding",
+            "shift-handover#cover-the-essentials"
+          ]
+        },
+        {
+          "question": "How should I format individual actions in a procedure?",
+          "expected": "write-guide#write-concrete-steps",
+          "rank": 1,
+          "top": [
+            "write-guide#write-concrete-steps",
+            "markdown-files#give-it-some-structure",
+            "shift-handover#confirm-understanding"
+          ]
+        },
+        {
+          "question": "How do we avoid two documents describing the same process?",
+          "expected": "write-guide#check-what-already-exists",
+          "rank": 1,
+          "top": [
+            "write-guide#check-what-already-exists",
+            "project-check#write-down-the-outcome",
+            "write-guide#write-concrete-steps"
+          ]
+        },
+        {
+          "question": "Who is responsible for keeping an instruction document accurate?",
+          "expected": "write-guide#choose-an-owner",
+          "rank": 1,
+          "top": [
+            "write-guide#choose-an-owner",
+            "project-check#name-the-people",
+            "team-help#close-the-loop"
+          ]
+        },
+        {
+          "question": "How can we discover confusing parts of a procedure before publishing?",
+          "expected": "write-guide#write-concrete-steps",
+          "rank": 2,
+          "top": [
+            "write-guide#check-what-already-exists",
+            "write-guide#write-concrete-steps",
+            "shift-handover#confirm-understanding"
+          ]
+        },
+        {
+          "question": "What details should I send when reporting a problem to a colleague?",
+          "expected": "team-help#share-the-context",
+          "rank": 1,
+          "top": [
+            "team-help#share-the-context",
+            "team-help#explain-the-goal",
+            "team-help#make-the-next-step-clear"
+          ]
+        },
+        {
+          "question": "How do I tell someone whether I want advice, a review, or investigation?",
+          "expected": "team-help#make-the-next-step-clear",
+          "rank": 1,
+          "top": [
+            "team-help#make-the-next-step-clear",
+            "team-help#explain-the-goal",
+            "tools#explain-what-you-need"
+          ]
+        },
+        {
+          "question": "What should I do with the solution after someone answers my question?",
+          "expected": "team-help#close-the-loop",
+          "rank": 1,
+          "top": [
+            "team-help#close-the-loop",
+            "team-help#explain-the-goal",
+            "team-help#make-the-next-step-clear"
+          ]
+        },
+        {
+          "question": "I need permission to use a shared tool. What should the request include?",
+          "expected": "tools#explain-what-you-need",
+          "rank": 1,
+          "top": [
+            "tools#explain-what-you-need",
+            "tools#find-the-resource-owner",
+            "tools#use-a-shared-template"
+          ]
+        },
+        {
+          "question": "I can open a page but cannot perform the required action. What next?",
+          "expected": "tools#check-that-it-works",
+          "rank": 1,
+          "top": [
+            "tools#check-that-it-works",
+            "welcome#find-an-answer",
+            "tools#explain-what-you-need"
+          ]
+        },
+        {
+          "question": "How do I use a common template without editing the original?",
+          "expected": "tools#use-a-shared-template",
+          "rank": 1,
+          "top": [
+            "tools#use-a-shared-template",
+            "tools#start-with-the-task",
+            "markdown-files#see-your-changes"
+          ]
+        },
+        {
+          "question": "Which outcomes and success criteria should be agreed before a project?",
+          "expected": "project-check#write-down-the-outcome",
+          "rank": 1,
+          "top": [
+            "project-check#write-down-the-outcome",
+            "project-check#set-up-the-working-space",
+            "project-check#name-the-people"
+          ]
+        },
+        {
+          "question": "Who is accountable, who contributes, and who reviews a new project?",
+          "expected": "project-check#name-the-people",
+          "rank": 1,
+          "top": [
+            "project-check#name-the-people",
+            "project-check#write-down-the-outcome",
+            "project-check#set-up-the-working-space"
+          ]
+        },
+        {
+          "question": "Where do I configure a different folder of Markdown documents?",
+          "expected": "markdown-files#put-the-file-in-the-knowledge-folder",
+          "rank": 1,
+          "top": [
+            "markdown-files#put-the-file-in-the-knowledge-folder",
+            "markdown-files#give-it-some-structure",
+            "markdown-files#a-document-is-a-file"
+          ]
+        },
+        {
+          "question": "Which metadata fields go at the top of a knowledge document?",
+          "expected": "markdown-files#describe-it-with-frontmatter",
+          "rank": 2,
+          "top": [
+            "markdown-files#put-the-file-in-the-knowledge-folder",
+            "markdown-files#describe-it-with-frontmatter",
+            "welcome#find-an-answer"
+          ]
+        },
+        {
+          "question": "As a new starter, how should I learn a real working procedure?",
+          "expected": "first-week#follow-a-process-with-someone",
+          "rank": 1,
+          "top": [
+            "first-week#follow-a-process-with-someone",
+            "first-week#read-the-essentials",
+            "first-week#meet-your-team"
+          ]
+        },
+        {
+          "question": "How can a new employee learn who looks after each area?",
+          "expected": "first-week#meet-your-team",
+          "rank": 1,
+          "top": [
+            "first-week#meet-your-team",
+            "welcome#make-knowledge-a-team-habit",
+            "first-week#read-the-essentials"
+          ]
+        }
+      ],
+      "top1": 17,
+      "top3": 20,
+      "mrr": 0.9166666666666666,
+      "medianMs": 1049,
+      "minMs": 1038,
+      "maxMs": 1099
+    },
+    {
+      "model": "liquid/lfm-2.5-embedding-350m:free",
+      "usdPerMillion": 0,
+      "trainingAllowed": true,
+      "latencyMs": [
+        653,
+        689,
+        743,
+        845,
+        679
+      ],
+      "errors": [],
+      "indexMs": 4951,
+      "accuracyBatchMs": 1062,
+      "cases": [
+        {
+          "question": "What must be passed to the next crew when a work shift ends?",
+          "expected": "shift-handover#cover-the-essentials",
+          "rank": 5,
+          "top": [
+            "shift-handover#confirm-understanding",
+            "shift-handover#after-the-handover",
+            "shift-handover#review-the-open-work"
+          ]
+        },
+        {
+          "question": "Who takes responsibility for abnormal equipment problems?",
+          "expected": "shift-handover#identify-anything-unusual",
+          "rank": 3,
+          "top": [
+            "shift-handover#confirm-understanding",
+            "project-check#name-the-people",
+            "shift-handover#identify-anything-unusual"
+          ]
+        },
+        {
+          "question": "How do we verify the incoming crew knows what to do?",
+          "expected": "shift-handover#confirm-understanding",
+          "rank": 1,
+          "top": [
+            "shift-handover#confirm-understanding",
+            "write-guide#write-concrete-steps",
+            "first-week#ask-the-small-questions"
+          ]
+        },
+        {
+          "question": "Where should the written handoff notes be kept afterwards?",
+          "expected": "shift-handover#after-the-handover",
+          "rank": 1,
+          "top": [
+            "shift-handover#after-the-handover",
+            "shift-handover#confirm-understanding",
+            "shift-handover#cover-the-essentials"
+          ]
+        },
+        {
+          "question": "How should I format individual actions in a procedure?",
+          "expected": "write-guide#write-concrete-steps",
+          "rank": 4,
+          "top": [
+            "markdown-files#describe-it-with-frontmatter",
+            "shift-handover#cover-the-essentials",
+            "project-check#share-what-you-learn"
+          ]
+        },
+        {
+          "question": "How do we avoid two documents describing the same process?",
+          "expected": "write-guide#check-what-already-exists",
+          "rank": 13,
+          "top": [
+            "write-guide#keep-it-current",
+            "markdown-files#describe-it-with-frontmatter",
+            "shift-handover#cover-the-essentials"
+          ]
+        },
+        {
+          "question": "Who is responsible for keeping an instruction document accurate?",
+          "expected": "write-guide#choose-an-owner",
+          "rank": 6,
+          "top": [
+            "write-guide#write-concrete-steps",
+            "write-guide#keep-it-current",
+            "project-check#name-the-people"
+          ]
+        },
+        {
+          "question": "How can we discover confusing parts of a procedure before publishing?",
+          "expected": "write-guide#write-concrete-steps",
+          "rank": 2,
+          "top": [
+            "write-guide#keep-it-current",
+            "write-guide#write-concrete-steps",
+            "shift-handover#cover-the-essentials"
+          ]
+        },
+        {
+          "question": "What details should I send when reporting a problem to a colleague?",
+          "expected": "team-help#share-the-context",
+          "rank": 7,
+          "top": [
+            "team-help#explain-the-goal",
+            "team-help#make-the-next-step-clear",
+            "team-help#close-the-loop"
+          ]
+        },
+        {
+          "question": "How do I tell someone whether I want advice, a review, or investigation?",
+          "expected": "team-help#make-the-next-step-clear",
+          "rank": 1,
+          "top": [
+            "team-help#make-the-next-step-clear",
+            "team-help#explain-the-goal",
+            "shift-handover#confirm-understanding"
+          ]
+        },
+        {
+          "question": "What should I do with the solution after someone answers my question?",
+          "expected": "team-help#close-the-loop",
+          "rank": 3,
+          "top": [
+            "team-help#explain-the-goal",
+            "first-week#ask-the-small-questions",
+            "team-help#close-the-loop"
+          ]
+        },
+        {
+          "question": "I need permission to use a shared tool. What should the request include?",
+          "expected": "tools#explain-what-you-need",
+          "rank": 2,
+          "top": [
+            "tools#use-a-shared-template",
+            "tools#explain-what-you-need",
+            "tools#find-the-resource-owner"
+          ]
+        },
+        {
+          "question": "I can open a page but cannot perform the required action. What next?",
+          "expected": "tools#check-that-it-works",
+          "rank": 1,
+          "top": [
+            "tools#check-that-it-works",
+            "tools#explain-what-you-need",
+            "tools#find-the-resource-owner"
+          ]
+        },
+        {
+          "question": "How do I use a common template without editing the original?",
+          "expected": "tools#use-a-shared-template",
+          "rank": 1,
+          "top": [
+            "tools#use-a-shared-template",
+            "write-guide#keep-it-current",
+            "markdown-files#see-your-changes"
+          ]
+        },
+        {
+          "question": "Which outcomes and success criteria should be agreed before a project?",
+          "expected": "project-check#write-down-the-outcome",
+          "rank": 2,
+          "top": [
+            "project-check#name-the-people",
+            "project-check#write-down-the-outcome",
+            "project-check#share-what-you-learn"
+          ]
+        },
+        {
+          "question": "Who is accountable, who contributes, and who reviews a new project?",
+          "expected": "project-check#name-the-people",
+          "rank": 1,
+          "top": [
+            "project-check#name-the-people",
+            "project-check#share-what-you-learn",
+            "project-check#set-up-the-working-space"
+          ]
+        },
+        {
+          "question": "Where do I configure a different folder of Markdown documents?",
+          "expected": "markdown-files#put-the-file-in-the-knowledge-folder",
+          "rank": 1,
+          "top": [
+            "markdown-files#put-the-file-in-the-knowledge-folder",
+            "markdown-files#a-document-is-a-file",
+            "markdown-files#give-it-some-structure"
+          ]
+        },
+        {
+          "question": "Which metadata fields go at the top of a knowledge document?",
+          "expected": "markdown-files#describe-it-with-frontmatter",
+          "rank": 1,
+          "top": [
+            "markdown-files#describe-it-with-frontmatter",
+            "write-guide#keep-it-current",
+            "welcome#your-shared-source-of-knowledge"
+          ]
+        },
+        {
+          "question": "As a new starter, how should I learn a real working procedure?",
+          "expected": "first-week#follow-a-process-with-someone",
+          "rank": 1,
+          "top": [
+            "first-week#follow-a-process-with-someone",
+            "first-week#read-the-essentials",
+            "welcome#your-shared-source-of-knowledge"
+          ]
+        },
+        {
+          "question": "How can a new employee learn who looks after each area?",
+          "expected": "first-week#meet-your-team",
+          "rank": 2,
+          "top": [
+            "first-week#ask-the-small-questions",
+            "first-week#meet-your-team",
+            "welcome#your-shared-source-of-knowledge"
+          ]
+        }
+      ],
+      "top1": 9,
+      "top3": 15,
+      "mrr": 0.6251556776556777,
+      "medianMs": 689,
+      "minMs": 653,
+      "maxMs": 845
+    },
+    {
+      "model": "openai/text-embedding-3-small",
+      "usdPerMillion": 0.02,
+      "trainingAllowed": false,
+      "latencyMs": [
+        1083,
+        1143,
+        1177,
+        1084,
+        1233
+      ],
+      "errors": [],
+      "indexMs": 5875,
+      "accuracyBatchMs": 1610,
+      "cases": [
+        {
+          "question": "What must be passed to the next crew when a work shift ends?",
+          "expected": "shift-handover#cover-the-essentials",
+          "rank": 5,
+          "top": [
+            "shift-handover#confirm-understanding",
+            "shift-handover#review-the-open-work",
+            "shift-handover#identify-anything-unusual"
+          ]
+        },
+        {
+          "question": "Who takes responsibility for abnormal equipment problems?",
+          "expected": "shift-handover#identify-anything-unusual",
+          "rank": 1,
+          "top": [
+            "shift-handover#identify-anything-unusual",
+            "shift-handover#confirm-understanding",
+            "shift-handover#after-the-handover"
+          ]
+        },
+        {
+          "question": "How do we verify the incoming crew knows what to do?",
+          "expected": "shift-handover#confirm-understanding",
+          "rank": 1,
+          "top": [
+            "shift-handover#confirm-understanding",
+            "shift-handover#identify-anything-unusual",
+            "shift-handover#after-the-handover"
+          ]
+        },
+        {
+          "question": "Where should the written handoff notes be kept afterwards?",
+          "expected": "shift-handover#after-the-handover",
+          "rank": 1,
+          "top": [
+            "shift-handover#after-the-handover",
+            "shift-handover#identify-anything-unusual",
+            "shift-handover#review-the-open-work"
+          ]
+        },
+        {
+          "question": "How should I format individual actions in a procedure?",
+          "expected": "write-guide#write-concrete-steps",
+          "rank": 3,
+          "top": [
+            "shift-handover#identify-anything-unusual",
+            "shift-handover#confirm-understanding",
+            "write-guide#write-concrete-steps"
+          ]
+        },
+        {
+          "question": "How do we avoid two documents describing the same process?",
+          "expected": "write-guide#check-what-already-exists",
+          "rank": 1,
+          "top": [
+            "write-guide#check-what-already-exists",
+            "write-guide#keep-it-current",
+            "team-help#close-the-loop"
+          ]
+        },
+        {
+          "question": "Who is responsible for keeping an instruction document accurate?",
+          "expected": "write-guide#choose-an-owner",
+          "rank": 2,
+          "top": [
+            "write-guide#keep-it-current",
+            "write-guide#choose-an-owner",
+            "shift-handover#after-the-handover"
+          ]
+        },
+        {
+          "question": "How can we discover confusing parts of a procedure before publishing?",
+          "expected": "write-guide#write-concrete-steps",
+          "rank": 1,
+          "top": [
+            "write-guide#write-concrete-steps",
+            "write-guide#check-what-already-exists",
+            "shift-handover#identify-anything-unusual"
+          ]
+        },
+        {
+          "question": "What details should I send when reporting a problem to a colleague?",
+          "expected": "team-help#share-the-context",
+          "rank": 1,
+          "top": [
+            "team-help#share-the-context",
+            "team-help#explain-the-goal",
+            "team-help#make-the-next-step-clear"
+          ]
+        },
+        {
+          "question": "How do I tell someone whether I want advice, a review, or investigation?",
+          "expected": "team-help#make-the-next-step-clear",
+          "rank": 1,
+          "top": [
+            "team-help#make-the-next-step-clear",
+            "team-help#explain-the-goal",
+            "tools#explain-what-you-need"
+          ]
+        },
+        {
+          "question": "What should I do with the solution after someone answers my question?",
+          "expected": "team-help#close-the-loop",
+          "rank": 1,
+          "top": [
+            "team-help#close-the-loop",
+            "team-help#make-the-next-step-clear",
+            "team-help#explain-the-goal"
+          ]
+        },
+        {
+          "question": "I need permission to use a shared tool. What should the request include?",
+          "expected": "tools#explain-what-you-need",
+          "rank": 1,
+          "top": [
+            "tools#explain-what-you-need",
+            "tools#find-the-resource-owner",
+            "tools#check-that-it-works"
+          ]
+        },
+        {
+          "question": "I can open a page but cannot perform the required action. What next?",
+          "expected": "tools#check-that-it-works",
+          "rank": 1,
+          "top": [
+            "tools#check-that-it-works",
+            "team-help#share-the-context",
+            "tools#explain-what-you-need"
+          ]
+        },
+        {
+          "question": "How do I use a common template without editing the original?",
+          "expected": "tools#use-a-shared-template",
+          "rank": 1,
+          "top": [
+            "tools#use-a-shared-template",
+            "markdown-files#see-your-changes",
+            "markdown-files#put-the-file-in-the-knowledge-folder"
+          ]
+        },
+        {
+          "question": "Which outcomes and success criteria should be agreed before a project?",
+          "expected": "project-check#write-down-the-outcome",
+          "rank": 1,
+          "top": [
+            "project-check#write-down-the-outcome",
+            "project-check#name-the-people",
+            "project-check#set-up-the-working-space"
+          ]
+        },
+        {
+          "question": "Who is accountable, who contributes, and who reviews a new project?",
+          "expected": "project-check#name-the-people",
+          "rank": 1,
+          "top": [
+            "project-check#name-the-people",
+            "project-check#set-up-the-working-space",
+            "project-check#write-down-the-outcome"
+          ]
+        },
+        {
+          "question": "Where do I configure a different folder of Markdown documents?",
+          "expected": "markdown-files#put-the-file-in-the-knowledge-folder",
+          "rank": 1,
+          "top": [
+            "markdown-files#put-the-file-in-the-knowledge-folder",
+            "markdown-files#give-it-some-structure",
+            "markdown-files#a-document-is-a-file"
+          ]
+        },
+        {
+          "question": "Which metadata fields go at the top of a knowledge document?",
+          "expected": "markdown-files#describe-it-with-frontmatter",
+          "rank": 1,
+          "top": [
+            "markdown-files#describe-it-with-frontmatter",
+            "welcome#your-shared-source-of-knowledge",
+            "welcome#make-knowledge-a-team-habit"
+          ]
+        },
+        {
+          "question": "As a new starter, how should I learn a real working procedure?",
+          "expected": "first-week#follow-a-process-with-someone",
+          "rank": 1,
+          "top": [
+            "first-week#follow-a-process-with-someone",
+            "first-week#read-the-essentials",
+            "first-week#meet-your-team"
+          ]
+        },
+        {
+          "question": "How can a new employee learn who looks after each area?",
+          "expected": "first-week#meet-your-team",
+          "rank": 1,
+          "top": [
+            "first-week#meet-your-team",
+            "first-week#ask-the-small-questions",
+            "first-week#follow-a-process-with-someone"
+          ]
+        }
+      ],
+      "top1": 17,
+      "top3": 19,
+      "mrr": 0.9016666666666666,
+      "medianMs": 1143,
+      "minMs": 1083,
+      "maxMs": 1233
+    }
+  ]
+}

@@ -2,9 +2,9 @@ import { createHash } from "node:crypto";
 import { readdir, readFile, stat, realpath } from "node:fs/promises";
 import path from "node:path";
 import { parse as parseYaml } from "yaml";
-import MarkdownIt from "markdown-it";
 import sanitizeHtml from "sanitize-html";
-import GithubSlugger, { slug } from "github-slugger";
+import { slug } from "github-slugger";
+import { documentBody, markdownParser, plainText as plain } from "./markdown";
 import type { Heading, KnowledgeDocument, Library } from "../shared/library";
 
 const digest = (value: string) =>
@@ -13,13 +13,6 @@ const label = (value: string) =>
   value.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 const string = (value: unknown, fallback = "") =>
   typeof value === "string" && value.trim() ? value.trim() : fallback;
-const plain = (value: string) =>
-  value
-    .replace(/!\[([^\]]*)\]\([^)]*\)/g, "$1")
-    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
-    .replace(/[#*_`>~]/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
 
 function parseFile(raw: string): {
   data: Record<string, unknown>;
@@ -106,6 +99,7 @@ export async function loadLibrary(
         throw new Error("File is outside the knowledge directory");
       const raw = await readFile(fileReal, "utf8");
       const { data, content } = parseFile(raw);
+      markdownParser().parse(content, {}); // Validate explicit heading IDs inside file recovery.
       const title = string(
         data.title,
         content.match(/^#\s+(.+)$/m)?.[1] ||
@@ -181,17 +175,9 @@ export async function loadLibrary(
   for (const doc of docs) {
     // A retained last-good document has already been rendered.
     if (doc.html) continue;
-    const parser = new MarkdownIt({
-      html: false,
-      linkify: true,
-      typographer: true,
-    });
-    const slugger = new GithubSlugger();
+    const parser = markdownParser();
     const headings: Heading[] = [];
-    const body = parseFile(doc.markdown).content.replace(
-      /^\s*#\s+(.+)\r?\n/,
-      (match, h1: string) => (plain(h1) === doc.title ? "" : match),
-    );
+    const body = documentBody(doc.markdown, doc.title);
     const tokens = parser.parse(body, {});
     for (let index = 0; index < tokens.length; index++) {
       const token = tokens[index];
@@ -203,8 +189,7 @@ export async function loadLibrary(
               child.type === "image" ? child.content : child.content,
             )
             .join("") || plain(inline.content);
-        const id = slugger.slug(text) || `section-${index}`;
-        token.attrSet("id", id);
+        const id = String(token.attrGet("id"));
         headings.push({ id, text, level: Number(token.tag.slice(1)) });
       }
       for (const child of token.children ?? []) {

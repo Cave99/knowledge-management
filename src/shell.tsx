@@ -1,10 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import {
-  Link,
-  Outlet,
-  useRouter,
-  useRouterState,
-} from "@tanstack/react-router";
+import { Link, Outlet, useRouterState } from "@tanstack/react-router";
 import {
   ArrowRight,
   BookOpen,
@@ -26,13 +21,11 @@ import type { Library } from "../shared/library";
 import {
   LibraryContext,
   PreferencesProvider,
-  spaceColor,
-  useLibrary,
   useLibraryQuery,
-  usePreferences,
   useStored,
 } from "./library";
 import { SpaceDot } from "./components";
+import { SearchDialog } from "./search-dialog";
 import { settlePage, useInputModality } from "./motion";
 import { useDrawerMotion } from "./use-drawer-motion";
 
@@ -405,165 +398,6 @@ function Sidebar({
         </div>
       </div>
     </div>
-  );
-}
-
-function SearchDialog({ onClose }: { onClose: () => void }) {
-  const dialog = useRef<HTMLDialogElement>(null);
-  const input = useRef<HTMLInputElement>(null);
-  const library = useLibrary();
-  const { recent } = usePreferences();
-  const [query, setQuery] = useState("");
-  const [selected, setSelected] = useState(0);
-  const router = useRouter();
-  const terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
-  let results = library.documents.filter((doc) =>
-    terms.every((word) =>
-      `${doc.title} ${doc.description} ${doc.space} ${doc.tags.join(" ")} ${doc.text}`
-        .toLowerCase()
-        .includes(word),
-    ),
-  );
-  if (terms.length)
-    results.sort(
-      (a, b) =>
-        Number(terms.every((word) => b.title.toLowerCase().includes(word))) -
-        Number(terms.every((word) => a.title.toLowerCase().includes(word))),
-    );
-  else if (recent.length)
-    results = [...results].sort((a, b) => {
-      const ai = recent.indexOf(a.id);
-      const bi = recent.indexOf(b.id);
-      return (ai < 0 ? 999 : ai) - (bi < 0 ? 999 : bi);
-    });
-  results = results.slice(0, 8);
-  useEffect(() => {
-    dialog.current?.showModal();
-    input.current?.focus();
-  }, []);
-  useEffect(() => {
-    setSelected(0);
-  }, [query]);
-  useEffect(() => {
-    dialog.current
-      ?.querySelector(`[data-search-index="${selected}"]`)
-      ?.scrollIntoView({ block: "nearest" });
-  }, [selected]);
-  const open = (id: string) => {
-    onClose();
-    void router.navigate({
-      to: "/documents/$documentId",
-      params: { documentId: id },
-    });
-  };
-  return (
-    <dialog
-      ref={dialog}
-      className="search-dialog"
-      aria-label="Search knowledge"
-      onCancel={onClose}
-      onClick={(event) => {
-        if (event.target === event.currentTarget) onClose();
-      }}
-      onKeyDown={(event) => {
-        if (event.key === "ArrowDown") {
-          event.preventDefault();
-          setSelected((value) => Math.min(value + 1, results.length - 1));
-        }
-        if (event.key === "ArrowUp") {
-          event.preventDefault();
-          setSelected((value) => Math.max(value - 1, 0));
-        }
-        if (event.key === "Enter" && results[selected]) {
-          event.preventDefault();
-          open(results[selected].id);
-        }
-      }}
-    >
-      <div className="search-dialog-input">
-        <Search size={20} />
-        <input
-          ref={input}
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="What would you like to know?"
-          aria-label="Search documents"
-          role="combobox"
-          aria-expanded="true"
-          aria-autocomplete="list"
-          aria-controls="knowledge-search-results"
-          aria-activedescendant={
-            results[selected]
-              ? `knowledge-search-result-${selected}`
-              : undefined
-          }
-          autoComplete="off"
-        />
-        <button onClick={onClose} aria-label="Close search">
-          <kbd>esc</kbd>
-        </button>
-      </div>
-      <div
-        className="search-results"
-        id="knowledge-search-results"
-        role="listbox"
-        aria-label="Matching documents"
-      >
-        <span className="search-label" role="presentation">
-          {query.trim()
-            ? `${results.length} RESULT${results.length === 1 ? "" : "S"}`
-            : recent.length
-              ? "RECENT & SUGGESTED"
-              : "EXPLORE YOUR KNOWLEDGE"}
-        </span>
-        {results.map((doc, index) => (
-          <button
-            key={doc.id}
-            id={`knowledge-search-result-${index}`}
-            role="option"
-            aria-selected={selected === index}
-            tabIndex={-1}
-            data-search-index={index}
-            className={`search-result ${selected === index ? "selected" : ""}`}
-            onMouseEnter={() => setSelected(index)}
-            onFocus={() => setSelected(index)}
-            onClick={() => open(doc.id)}
-          >
-            <span
-              className={`search-result-icon tone-${spaceColor(doc.spaceId)}`}
-            >
-              <FileText size={19} strokeWidth={1.5} />
-            </span>
-            <span>
-              <strong>{doc.title}</strong>
-              <small>{doc.description}</small>
-              <span className="result-space">
-                <SpaceDot id={doc.spaceId} />
-                {doc.space}
-              </span>
-            </span>
-            <ArrowRight size={15} />
-          </button>
-        ))}
-        {!results.length && (
-          <div className="search-empty">
-            <Search size={25} strokeWidth={1.4} />
-            <strong>No answers for “{query}” yet</strong>
-            <p>Try a different word, a tool name, or a shorter phrase.</p>
-          </div>
-        )}
-      </div>
-      <div className="search-footer">
-        <span>
-          <kbd>↑</kbd>
-          <kbd>↓</kbd> to navigate
-        </span>
-        <span>
-          <kbd>↵</kbd> to open
-        </span>
-        <span>Search your whole library</span>
-      </div>
-    </dialog>
   );
 }
 
